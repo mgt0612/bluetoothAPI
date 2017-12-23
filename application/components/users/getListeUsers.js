@@ -4,11 +4,13 @@ const config = require(`../../config/${env}`);
 
 module.exports = function(req, res) {
 
-	config.DB.select('username',
-	 'email',
-	 'first_name',
-	 'last_name')
-		.from('users')
+	config.DB.select('u_id',
+	 'blueAdd',
+	 'nomApp',
+	 'numero',
+	 'u_nom',
+	 'u_prenom')
+		.from('user')
 		.then(function (rows) {
         return res.status(201).json({
             statusCode:201,

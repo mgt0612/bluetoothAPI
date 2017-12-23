@@ -1,7 +1,7 @@
 module.exports = {
-    getInfosByUser: require('./getInfosByUser'),
-    getListeUsers: require('./getListeUsers'),
-    postUsers:require('./postUsers'),
-    deleteUser:require('./deleteUser'),
-    updateUser:require('./updateUser'),
+    getInfosByMess: require('./getInfosByMess'),
+    getListeMess: require('./getListeMess'),
+    postMess:require('./postMess'),
+    deleteMess:require('./deleteMess'),
+    updateMess:require('./updateMess'),
 }

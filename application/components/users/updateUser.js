@@ -4,16 +4,17 @@ const config = require(`../../config/${env}`); // require un fichier config en f
 const db = config.DB;
 
 module.exports = function (req,res){
-    config.DB('users').update({
-        username:req.body.username,
-        email:req.body.email,
-        first_name:req.body.first_name,
-        last_name:req.body.last_name 
+    config.DB('user').update({
+        blueAdd:req.body.blueAdd,
+        nomApp:req.body.nomApp,
+        numero:req.body.numero,
+        u_nom:req.body.u_nom,
+		u_prenom:req.body.u_prenom
         }
 
     )
     .where({
-        user_id:req.user_id,
+        u_id:req.u_id
     })
     .then(function(rows){
         return res.status(201).json({
