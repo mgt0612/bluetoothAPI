@@ -17,7 +17,7 @@ const services={
   },
   
   messages:{
-  	getInfosByMess: require('./components/Messages/getInfosByMess'),
+  	getInfosByMess: require('./components/messages/getInfosByMess'),
     getListeMess:require('./components/messages/getListeMess'),
     postMess:require('./components/messages/postMess'),
     getInfosByMess:require('./components/messages/getInfosByMess'),
