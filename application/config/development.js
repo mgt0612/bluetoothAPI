@@ -1,5 +1,5 @@
 module.exports =  {
-	PORT: 8080,
+	PORT: process.env.PORT || 3000,
 	DB: require('knex') ({
 		  client: 'mysql',
 	connection: {
