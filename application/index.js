@@ -27,7 +27,6 @@ const services={
 }
 
 // variables d'environement
-const env = process.env.NODE_ENV || 'development';
 const config = require(`./config/${env}`);
 const app = express();
 
