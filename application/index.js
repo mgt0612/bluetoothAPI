@@ -1,5 +1,5 @@
 //déclarations des constantes
-
+const env = process.env.NODE_ENV || 'production';
 const express = require('express');//on charge express
 const parser = require('body-parser');//puis body parser
 const _ = require('lodash');//puis lodash
