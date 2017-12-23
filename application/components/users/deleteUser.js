@@ -21,7 +21,7 @@ module.exports = function (req,res){
     .catch(function(err){
         return res.status(401).json({
             statusCode:401,
-            error: 'error',
+            error: err,
             data:{}
         });
     });
