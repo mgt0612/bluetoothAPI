@@ -1,9 +1,7 @@
 {
   "name": "skeleton",
   "version": "1.0.0",
-  "scripts": {
-    "start": "node application/index.js"
-  },
+  "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.15.5",
@@ -13,5 +11,8 @@
     "mysql": "^2.15.0",
     "nodemon": "^1.12.1",
     "pg": "^7.3.0"
+  },
+  "scripts": {
+    "start": "node ./application/index.js"
   }
 }
