@@ -7,23 +7,12 @@ const _ = require('lodash');//puis lodash
 //----------------------------------Les services-----------------------------------------
 const services={
 
-  users:{
-  	getInfosByUser: require('./components/users/getInfosByUser'),
-    getListeUsers:require('./components/users/getListeUsers'),
-    postUsers:require('./components/users/postUsers'),
-    getInfosByUser:require('./components/users/getInfosByUser'),
-    deleteUser: require('./components/users/deleteUser'),
-    updateUser: require('./components/users/updateUser'),
-  },
-  
-  messages:{
-  	getInfosByMess: require('./components/messages/getInfosByMess'),
-    getListeMess:require('./components/messages/getListeMess'),
-    postMess:require('./components/messages/postMess'),
-    getInfosByMess:require('./components/messages/getInfosByMess'),
-    deleteMess: require('./components/messages/deleteMess'),
-    updateMess: require('./components/messages/updateMess'),
-  },
+  oper:{
+  	add: require('./components/addition'),
+    sub: require('./components/soustraction'),
+    mult: require('./components/multiplication'),
+    div: require('./components/division')
+  }
 }
 
 // variables d'environement
@@ -33,47 +22,17 @@ const app = express();
 app.use(parser.json());
 
 
-// GET LISTE USERS: renvoyer la liste de tous les users---------------------------------------------------------
-app.get('/users', services.users.getListeUsers);
-//------------------------------------------------------------------------------------------------------------------
+// GET ADDITION: faire une addition entre 2 membres---------------------------------------------------------
+app.get('/addition/:m1/:m2', services.oper.add);
 
-// GET USER INFOS: renvoyer les informations d'un utilisateur---------------------------------------------------------
-app.get('/users/:u_id', services.users.getInfosByUser);
-//------------------------------------------------------------------------------------------------------------------
+// GET SOUSTRACTION: faire une soustraction entre 2 membres---------------------------------------------------------
+app.get('/soustraction/:m1/:m2', services.oper.sub);
 
-// POST USERS: création d'un nouveau utilisateur----------------------------------------------------------------
-app.post('/users', services.users.postUsers);
-//------------------------------------------------------------------------------------------------------------------
+// GET MULTIPLICATION: faire une multiplication entre 2 membres---------------------------------------------------------
+app.get('/multiplication/:m1/:m2', services.oper.mult);
 
-// UPDATE USER: actualiser mes informations---------------------------------------------------------
-app.put('/updateU/:u_id',  services.users.updateUser);
-//------------------------------------------------------------------------------------------------------------------
-
-
-// DELETE UTILISATEUR: supprimer utilisateur---------------------------------------------------------
-app.put('/deleteU/:u_id',  services.users.deleteUser);
-//------------------------------------------------------------------------------------------------------------------
-
-// GET LISTE MESSAGE: renvoyer la liste de tous les messages---------------------------------------------------------
-app.get('/messages', services.messages.getListeMess);
-//------------------------------------------------------------------------------------------------------------------
-
-// GET MESSAGE INFOS: renvoyer les informations d'un message------------------------------------------------------------------------------------------------------------------
-app.get('/messages/:m_id', services.messages.getInfosByMess);
-//------------------------------------------------------------------------------------------------------------------
-
-// POST MESSAGE: création d'un nouveau message-------------------------------------------------------------------------------------------------------------------------
-app.post('/messages', services.messages.postMess);
-//------------------------------------------------------------------------------------------------------------------
-
-// UPDATE MESSAGE: actualiser un message---------------------------------------------------------
-app.put('/updateM/:m_id',  services.messages.updateMess);
-//------------------------------------------------------------------------------------------------------------------
-
-
-// DELETE MESSAGE: supprimer message---------------------------------------------------------
-app.put('/deleteM/:m_id',  services.messages.deleteMess);
-//------------------------------------------------------------------------------------------------------------------
+// GET DIVISION: faire une division entre 2 membres---------------------------------------------------------
+app.get('/division/:m1/:m2', services.oper.div);
 
 app.listen(config.PORT, function () {
   console.log(`Listening on port ${config.PORT}`);//callback
